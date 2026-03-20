@@ -92,3 +92,201 @@ if (slides.length) {
     restartAuto();
   });
 }
+
+const noticeStorageKey = 'vanonnuri_notice_items_v1';
+const noticeList = document.getElementById('noticeList');
+const noticeForm = document.getElementById('noticeForm');
+const openNoticeFormBtn = document.getElementById('openNoticeForm');
+const cancelNoticeFormBtn = document.getElementById('cancelNoticeForm');
+const noticeCategoryInput = document.getElementById('noticeCategory');
+const noticeTitleInput = document.getElementById('noticeTitle');
+const noticeDateInput = document.getElementById('noticeDate');
+const noticeContentInput = document.getElementById('noticeContent');
+const noticeImageInput = document.getElementById('noticeImage');
+const noticeViewer = document.getElementById('noticeViewer');
+const noticeViewerTitle = document.getElementById('noticeViewerTitle');
+const noticeViewerMeta = document.getElementById('noticeViewerMeta');
+const noticeViewerContent = document.getElementById('noticeViewerContent');
+const noticeViewerImage = document.getElementById('noticeViewerImage');
+
+const defaultNotices = [
+  {
+    id: 'n1',
+    category: '학사',
+    title: '2026 봄학기 개강 안내',
+    date: '2026-03-10',
+    content: '2026 봄학기 수업이 시작됩니다. 반별 안내를 확인해 주세요.',
+    image: '',
+  },
+  {
+    id: 'n2',
+    category: '모집',
+    title: '신입생 레벨테스트 신청',
+    date: '2026-03-05',
+    content: '신입생 반 배정을 위한 레벨테스트 신청을 받습니다.',
+    image: '',
+  },
+  {
+    id: 'n3',
+    category: '행사',
+    title: '한글날 글쓰기 대회 참가 접수',
+    date: '2026-02-25',
+    content: '한글날 행사 글쓰기 대회 참가 신청을 진행합니다.',
+    image: '',
+  },
+  {
+    id: 'n4',
+    category: '안내',
+    title: '학부모 오리엔테이션 일정 공지',
+    date: '2026-02-20',
+    content: '학부모 오리엔테이션 일정을 확인해 주세요.',
+    image: '',
+  },
+];
+
+function loadNotices() {
+  try {
+    const raw = window.localStorage.getItem(noticeStorageKey);
+    if (!raw) return defaultNotices;
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) && parsed.length ? parsed : defaultNotices;
+  } catch {
+    return defaultNotices;
+  }
+}
+
+let notices = loadNotices();
+
+function saveNotices() {
+  window.localStorage.setItem(noticeStorageKey, JSON.stringify(notices));
+}
+
+function formatDate(dateStr) {
+  return dateStr.replaceAll('-', '.');
+}
+
+function sortNotices(items) {
+  return [...items].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+function renderNoticeViewer(notice) {
+  if (!noticeViewer || !noticeViewerTitle || !noticeViewerMeta || !noticeViewerContent || !noticeViewerImage) return;
+
+  noticeViewer.hidden = false;
+  noticeViewerTitle.textContent = notice.title;
+  noticeViewerMeta.textContent = `[${notice.category}] ${formatDate(notice.date)}`;
+  noticeViewerContent.textContent = notice.content;
+
+  if (notice.image) {
+    noticeViewerImage.src = notice.image;
+    noticeViewerImage.hidden = false;
+  } else {
+    noticeViewerImage.hidden = true;
+    noticeViewerImage.removeAttribute('src');
+  }
+}
+
+function renderNoticeList() {
+  if (!noticeList) return;
+
+  const sorted = sortNotices(notices);
+  noticeList.innerHTML = '';
+
+  sorted.forEach((notice) => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    const label = document.createElement('span');
+    const time = document.createElement('time');
+    const deleteBtn = document.createElement('button');
+
+    label.textContent = `[${notice.category}]`;
+    link.href = '#';
+    link.appendChild(label);
+    link.append(` ${notice.title}`);
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      renderNoticeViewer(notice);
+    });
+
+    time.dateTime = notice.date;
+    time.textContent = formatDate(notice.date);
+
+    deleteBtn.type = 'button';
+    deleteBtn.className = 'notice-delete';
+    deleteBtn.textContent = '삭제';
+    deleteBtn.addEventListener('click', () => {
+      notices = notices.filter((n) => n.id !== notice.id);
+      saveNotices();
+      renderNoticeList();
+      if (noticeViewer && !noticeViewer.hidden && noticeViewerTitle?.textContent === notice.title) {
+        noticeViewer.hidden = true;
+      }
+    });
+
+    li.appendChild(link);
+    li.appendChild(time);
+    li.appendChild(deleteBtn);
+    noticeList.appendChild(li);
+  });
+
+  if (sorted[0]) {
+    renderNoticeViewer(sorted[0]);
+  }
+}
+
+function readImageAsDataUrl(file) {
+  return new Promise((resolve) => {
+    if (!file) {
+      resolve('');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+    reader.onerror = () => resolve('');
+    reader.readAsDataURL(file);
+  });
+}
+
+if (openNoticeFormBtn && noticeForm) {
+  openNoticeFormBtn.addEventListener('click', () => {
+    noticeForm.hidden = !noticeForm.hidden;
+  });
+}
+
+cancelNoticeFormBtn?.addEventListener('click', () => {
+  if (!noticeForm) return;
+  noticeForm.hidden = true;
+});
+
+noticeForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (!noticeCategoryInput || !noticeTitleInput || !noticeDateInput || !noticeContentInput) return;
+
+  const imageFile = noticeImageInput?.files?.[0];
+  const imageDataUrl = await readImageAsDataUrl(imageFile);
+
+  const newNotice = {
+    id: String(Date.now()),
+    category: noticeCategoryInput.value.trim(),
+    title: noticeTitleInput.value.trim(),
+    date: noticeDateInput.value,
+    content: noticeContentInput.value.trim(),
+    image: imageDataUrl,
+  };
+
+  if (!newNotice.category || !newNotice.title || !newNotice.date || !newNotice.content) {
+    return;
+  }
+
+  notices.push(newNotice);
+  saveNotices();
+  renderNoticeList();
+
+  noticeForm.reset();
+  noticeForm.hidden = true;
+});
+
+if (noticeList) {
+  renderNoticeList();
+}
