@@ -161,6 +161,29 @@ img {
   background: #fff;
   padding: 0.5rem 0.8rem;
   border-radius: 8px;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.menu-icon {
+  width: 18px;
+  height: 14px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #23476f;
+  border-radius: 2px;
+}
+
+.menu-text {
+  font-weight: 700;
+  font-size: 0.86rem;
 }
 
 .gnb {
@@ -630,10 +653,11 @@ img {
   }
 
   .menu-toggle {
-    display: block;
+    display: inline-flex;
     flex-shrink: 0;
-    padding: 0.48rem 0.66rem;
-    font-size: 0.86rem;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.52rem 0.7rem;
   }
 
   .apply-btn {
@@ -667,18 +691,33 @@ img {
   }
 
   .gnb {
-    display: none;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--line);
+    background: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.28s ease;
+    z-index: 120;
   }
 
   .gnb.is-open {
-    display: block;
-    margin-top: 0.28rem;
-    border-radius: 10px;
-    overflow: hidden;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    border-bottom: 1px solid var(--line);
   }
 
   .gnb > .container > ul {
     flex-direction: column;
+  }
+
+  .gnb > .container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .gnb li {

@@ -7,6 +7,15 @@ if (menuToggle && gnb) {
     menuToggle.setAttribute('aria-expanded', String(!expanded));
     gnb.classList.toggle('is-open');
   });
+
+  const gnbLinks = gnb.querySelectorAll('a');
+  gnbLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!window.matchMedia('(max-width: 760px)').matches) return;
+      gnb.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 }
 
 const submenuToggles = Array.from(document.querySelectorAll('.submenu-toggle'));
