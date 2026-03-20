@@ -192,12 +192,6 @@ img {
   z-index: 30;
 }
 
-.has-submenu:hover > .submenu,
-.has-submenu:focus-within > .submenu,
-.has-submenu.open > .submenu {
-  display: block;
-}
-
 .submenu li {
   border-top: 1px solid #edf3fb;
 }
@@ -215,6 +209,13 @@ img {
 
 .submenu a:hover {
   background: #f6faff;
+}
+
+@media (min-width: 761px) {
+  .has-submenu:hover > .submenu,
+  .has-submenu:focus-within > .submenu {
+    display: block;
+  }
 }
 
 .hero {
@@ -593,6 +594,10 @@ img {
     box-shadow: none;
     border-top: 1px solid #e7eef8;
     background: #f8fbff;
+  }
+
+  .has-submenu.open > .submenu {
+    display: block;
   }
 
   .submenu a {
