@@ -1,0 +1,213 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>밴쿠버온누리한국어학교</title>
+  <meta name="description" content="밴쿠버온누리한국어학교 공식 홈페이지" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p>Welcome to Vancouver Onnuri Korean School</p>
+        <ul class="top-links">
+          <li><a href="#">로그인 | Login</a></li>
+          <li><a href="#">회원가입 | Sign Up</a></li>
+          <li><a href="#">사이트맵 | Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container brand-row">
+      <a class="brand" href="#" aria-label="메인으로 이동">
+        <span class="brand-mark">
+          <img src="assets/images/onnuri-korean-school-logo.png" alt="밴쿠버온누리한국어학교 로고" />
+        </span>
+        <span class="brand-text">
+          <strong>밴쿠버온누리한국어학교</strong>
+          <small>Vancouver Onnuri Korean School</small>
+        </span>
+      </a>
+      <a class="apply-btn" href="#">입학 문의 | Inquiry</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="gnb">메뉴</button>
+    </div>
+
+    <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+      <div class="container">
+        <ul>
+          <li><a href="#about">학교소개 | About</a></li>
+          <li><a href="#programs">교육과정 | Programs</a></li>
+          <li><a href="#notice">공지사항 | Notice</a></li>
+          <li><a href="#gallery">학교소식 | News</a></li>
+          <li><a href="#admission">입학안내 | Admission</a></li>
+          <li><a href="#contact">오시는길 | Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-label="메인 배너">
+      <div class="hero-slides" id="heroSlides">
+        <article class="hero-slide is-active" style="--bg-img:url('https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&w=1500&q=80');">
+          <div class="container hero-content">
+            <p class="eyebrow">2026 봄학기 모집</p>
+            <h1>함께 배우는 한국어, 함께 자라는 정체성</h1>
+            <p>유아부터 청소년까지, 세대와 문화를 잇는 한국어 교육을 제공합니다.</p>
+            <a href="#admission" class="hero-cta">등록 일정 보기 | Registration</a>
+          </div>
+        </article>
+        <article class="hero-slide" style="--bg-img:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1500&q=80');">
+          <div class="container hero-content">
+            <p class="eyebrow">온누리 한국문화교실</p>
+            <h2>말과 문화를 함께 배우는 주말 학교</h2>
+            <p>한글 수업, 전통문화 체험, 특별행사로 즐겁게 배우는 시간을 만듭니다.</p>
+            <a href="#programs" class="hero-cta">교육과정 확인 | Programs</a>
+          </div>
+        </article>
+        <article class="hero-slide" style="--bg-img:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1500&q=80');">
+          <div class="container hero-content">
+            <p class="eyebrow">학부모 커뮤니티</p>
+            <h2>가정과 학교가 함께 만드는 배움</h2>
+            <p>정기 상담과 알림 서비스로 학생의 성장을 함께 지원합니다.</p>
+            <a href="#contact" class="hero-cta">문의하기 | Contact</a>
+          </div>
+        </article>
+      </div>
+      <div class="container hero-controls">
+        <button id="prevSlide" aria-label="이전 배너">이전</button>
+        <div class="dots" id="dots" aria-label="배너 선택"></div>
+        <button id="nextSlide" aria-label="다음 배너">다음</button>
+      </div>
+    </section>
+
+    <section class="quick-links">
+      <div class="container quick-grid">
+        <a href="#admission"><strong>입학안내 | Admission</strong><span>원서 및 등록일정 | Forms & Dates</span></a>
+        <a href="#notice"><strong>공지사항 | Notice</strong><span>학사일정 및 안내 | School Calendar</span></a>
+        <a href="#programs"><strong>교육과정 | Programs</strong><span>반별 학습목표 | Class Goals</span></a>
+        <a href="#gallery"><strong>학교소식 | News</strong><span>행사 사진과 이야기 | Gallery Stories</span></a>
+      </div>
+    </section>
+
+    <section class="notice-section" id="notice">
+      <div class="container two-col">
+        <article class="panel">
+          <header>
+            <h3>공지사항</h3>
+            <a href="#">더보기 | More +</a>
+          </header>
+          <ul class="list">
+            <li><a href="#"><span>[학사]</span> 2026 봄학기 개강 안내</a><time datetime="2026-03-10">2026.03.10</time></li>
+            <li><a href="#"><span>[모집]</span> 신입생 레벨테스트 신청</a><time datetime="2026-03-05">2026.03.05</time></li>
+            <li><a href="#"><span>[행사]</span> 한글날 글쓰기 대회 참가 접수</a><time datetime="2026-02-25">2026.02.25</time></li>
+            <li><a href="#"><span>[안내]</span> 학부모 오리엔테이션 일정 공지</a><time datetime="2026-02-20">2026.02.20</time></li>
+          </ul>
+        </article>
+
+        <article class="panel" id="about">
+          <header>
+            <h3>학교 소개</h3>
+          </header>
+          <p>
+            밴쿠버온누리한국어학교는 캐나다 밴쿠버 지역의 차세대가 한국어와 한국문화를
+            즐겁게 배우며 정체성과 자신감을 키우도록 돕는 주말학교입니다.
+          </p>
+          <div class="facts">
+            <dl><dt>수업 대상</dt><dd>유아 ~ 청소년</dd></dl>
+            <dl><dt>수업 시간</dt><dd>매주 토요일 오전</dd></dl>
+            <dl><dt>운영 과정</dt><dd>기초/초급/중급/고급</dd></dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="programs" id="programs">
+      <div class="container">
+        <div class="section-head">
+          <h3>교육과정</h3>
+          <p>수준별 한국어 교육과 체험형 문화활동으로 균형 있게 성장합니다.</p>
+        </div>
+        <div class="program-grid">
+          <article>
+            <h4>한글 첫걸음</h4>
+            <p>자음·모음 학습과 놀이 활동 중심의 유아/초등 저학년 과정</p>
+          </article>
+          <article>
+            <h4>읽기와 말하기</h4>
+            <p>생활 한국어를 중심으로 듣기·말하기·읽기·쓰기 통합 학습</p>
+          </article>
+          <article>
+            <h4>심화 한국어</h4>
+            <p>토론, 발표, 글쓰기 중심으로 사고력과 표현력을 확장하는 과정</p>
+          </article>
+          <article>
+            <h4>한국문화 프로젝트</h4>
+            <p>명절, 전통예절, 역사, K-문화 콘텐츠를 통한 체험형 수업</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <h3>학교소식</h3>
+          <a href="#">전체보기 | View All +</a>
+        </div>
+        <div class="gallery-grid">
+          <article>
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80" alt="학생 발표 수업" />
+            <h4>학급별 발표 수업</h4>
+            <p>2026.03.08</p>
+          </article>
+          <article>
+            <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=700&q=80" alt="한국문화 체험 활동" />
+            <h4>전통문화 체험의 날</h4>
+            <p>2026.02.22</p>
+          </article>
+          <article>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80" alt="교사 워크숍" />
+            <h4>교사 연수 워크숍</h4>
+            <p>2026.02.15</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="admission" id="admission">
+      <div class="container admission-box">
+        <h3>입학 안내</h3>
+        <p>신입생 등록은 학기 시작 4주 전부터 진행됩니다. 반 배정 전 간단한 레벨 확인이 있습니다.</p>
+        <div class="admission-actions">
+          <a href="#">입학 원서 다운로드 | Download Form</a>
+          <a href="#">카카오톡 문의 | KakaoTalk</a>
+          <a href="mailto:info@onnurikorean.ca">이메일 문의 | Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div>
+        <strong>밴쿠버온누리한국어학교</strong>
+        <p>주소: 1234 Example St, Vancouver, BC, Canada</p>
+        <p>전화: +1-604-000-0000 | 이메일: info@onnurikorean.ca</p>
+      </div>
+      <p class="copy">© 2026 Vancouver Onnuri Korean School. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
