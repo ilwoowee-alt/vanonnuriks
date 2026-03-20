@@ -326,14 +326,15 @@ function renderAdminUi() {
   if (!loggedIn && noticeForm) {
     noticeForm.hidden = true;
   }
-  if (loggedIn && adminLoginForm) {
-    adminLoginForm.hidden = true;
+  if (adminLoginForm) {
+    adminLoginForm.hidden = loggedIn;
   }
 }
 
 adminLoginBtn?.addEventListener('click', () => {
   if (!adminLoginForm) return;
-  adminLoginForm.hidden = !adminLoginForm.hidden;
+  adminLoginForm.hidden = false;
+  adminIdInput?.focus();
 });
 
 cancelAdminLoginBtn?.addEventListener('click', () => {
