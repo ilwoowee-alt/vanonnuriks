@@ -92,3 +92,16 @@ if (slides.length) {
     restartAuto();
   });
 }
+
+const noticeItems = Array.from(document.querySelectorAll('#noticeAccordion li'));
+
+noticeItems.forEach((item) => {
+  const btn = item.querySelector('.notice-title');
+  btn?.addEventListener('click', () => {
+    const opened = item.classList.contains('open');
+    noticeItems.forEach((x) => x.classList.remove('open'));
+    if (!opened) {
+      item.classList.add('open');
+    }
+  });
+});

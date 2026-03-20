@@ -445,6 +445,38 @@ img {
   white-space: nowrap;
 }
 
+.notice-accordion li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.notice-title {
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  color: #20344d;
+}
+
+.notice-detail {
+  margin: 0.5rem 0 0;
+  grid-column: 1 / -1;
+  display: none;
+  color: #3c4f66;
+  line-height: 1.7;
+  background: #f8fbff;
+  border: 1px solid #d9e6f6;
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+}
+
+.notice-accordion li.open .notice-detail {
+  display: block;
+}
+
 
 .facts {
   margin-top: 1rem;
