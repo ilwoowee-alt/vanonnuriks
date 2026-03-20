@@ -97,11 +97,18 @@ const noticeItems = Array.from(document.querySelectorAll('#noticeAccordion li'))
 
 noticeItems.forEach((item) => {
   const btn = item.querySelector('.notice-title');
+  const detail = item.querySelector('.notice-detail');
+  if (detail) detail.hidden = true;
   btn?.addEventListener('click', () => {
     const opened = item.classList.contains('open');
-    noticeItems.forEach((x) => x.classList.remove('open'));
+    noticeItems.forEach((x) => {
+      x.classList.remove('open');
+      const d = x.querySelector('.notice-detail');
+      if (d) d.hidden = true;
+    });
     if (!opened) {
       item.classList.add('open');
+      if (detail) detail.hidden = false;
     }
   });
 });
