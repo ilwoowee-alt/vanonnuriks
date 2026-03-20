@@ -1,0 +1,259 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>교사 소개 | 밴쿠버온누리한국어학교</title>
+  <meta name="description" content="밴쿠버온누리한국어학교 교사진 소개" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260320-2" />
+  <style>
+    .sub-hero {
+      background: linear-gradient(115deg, #deefff, #edf6ff 55%, #f9fcff);
+      border-top: 1px solid #d8e6f7;
+      border-bottom: 1px solid #d8e6f7;
+      padding: 30px 0;
+    }
+
+    .sub-hero h1 {
+      margin: 0;
+      color: #0e2c4f;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+    }
+
+    .crumb {
+      margin: 0.35rem 0 0;
+      color: #4b617d;
+      font-size: 0.92rem;
+    }
+
+    .teachers-page {
+      background: linear-gradient(180deg, #f5faff 0%, #ffffff 100%);
+      min-height: 100vh;
+      padding: 34px 0 70px;
+    }
+
+    .teachers-wrap {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    .teachers-intro {
+      background: #ffffff;
+      border: 1px solid #dbe6f3;
+      border-radius: 18px;
+      padding: 1.7rem;
+      box-shadow: 0 10px 24px rgba(19, 61, 106, 0.08);
+    }
+
+    .teachers-intro h2 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      color: #0e2c4f;
+    }
+
+    .teachers-intro p {
+      margin: 0.9rem 0 0;
+      color: #2f435c;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .teacher-table-wrap {
+      margin-top: 1rem;
+      background: #ffffff;
+      border: 1px solid #dbe6f3;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(25, 77, 130, 0.06);
+    }
+
+    .teacher-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .teacher-table thead th {
+      background: #eef6ff;
+      color: #1a3f68;
+      text-align: left;
+      font-size: 0.95rem;
+      padding: 0.9rem 0.9rem;
+      border-bottom: 1px solid #dbe6f3;
+    }
+
+    .teacher-table tbody td {
+      padding: 0.9rem;
+      border-bottom: 1px solid #edf2f9;
+      color: #2b425d;
+      line-height: 1.6;
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    .teacher-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .teacher-table .col-role {
+      width: 120px;
+      font-weight: 700;
+      color: #1d4d7c;
+    }
+
+    .teacher-table .col-name {
+      width: 170px;
+      font-weight: 700;
+      color: #213952;
+    }
+
+    @media (max-width: 860px) {
+      .teacher-table-wrap {
+        overflow: auto;
+      }
+
+      .teacher-table {
+        min-width: 760px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p>Welcome to Vancouver Onnuri Korean School</p>
+        <ul class="top-links">
+          <li><a href="#">로그인 | Login</a></li>
+          <li><a href="#">회원가입 | Sign Up</a></li>
+          <li><a href="#">사이트맵 | Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container brand-row">
+      <a class="brand" href="index.html" aria-label="메인으로 이동">
+        <span class="brand-mark">
+          <img src="assets/images/onnuri-korean-school-logo.png" alt="밴쿠버온누리한국어학교 로고" />
+        </span>
+        <span class="brand-text">
+          <strong>밴쿠버온누리한국어학교</strong>
+          <small>Vancouver Onnuri Korean School</small>
+        </span>
+      </a>
+      <a class="apply-btn" href="index.html#admission">입학 문의 | Inquiry</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="gnb">메뉴</button>
+    </div>
+
+    <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+      <div class="container">
+        <ul>
+          <li class="has-submenu">
+            <a href="index.html#about" class="submenu-toggle current" aria-expanded="false">학교소개 | About</a>
+            <ul class="submenu">
+              <li><a href="vision-intro.html?v=20260320-1">학교 비전 &amp; 소개 | Vision &amp; Intro</a></li>
+              <li><a href="teachers.html?v=20260320-1" class="current">교사 소개 | Teachers</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#programs">교육과정 | Programs</a></li>
+          <li><a href="index.html#notice">공지사항 | Notice</a></li>
+          <li><a href="index.html#gallery">학교소식 | News</a></li>
+          <li><a href="index.html#admission">입학안내 | Admission</a></li>
+          <li><a href="index.html#contact">오시는길 | Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero">
+      <div class="container">
+        <h1>교사 소개</h1>
+        <p class="crumb">홈 | 학교소개 | 교사 소개</p>
+      </div>
+    </section>
+
+    <section class="teachers-page">
+      <div class="teachers-wrap">
+        <section class="teachers-intro">
+          <h2>전문성과 열정으로 아이들을 이끄는 우리 선생님들</h2>
+          <p>밴쿠버 온누리 한국어학교의 선생님들은 한국어 교육, 유아교육, 다양한 전공과 풍부한 경험을 바탕으로
+아이들이 즐겁고 효과적으로 한국어를 배우며 성장할 수 있도록 지도합니다.
+각 교사들은 온라인과 오프라인 수업 모두에서 아이들의 수준과 필요에 맞춘 맞춤형 학습 환경을 제공합니다.</p>
+        </section>
+
+        <section class="teacher-table-wrap" aria-label="교사진 정보 표">
+          <table class="teacher-table">
+            <thead>
+              <tr>
+                <th>직책</th>
+                <th>이름</th>
+                <th>전문 분야 / 경력</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-role">교장</td>
+                <td class="col-name">위일우</td>
+                <td>한국어교육 전공, 현 캐나다 서부지역한국학교협회 부회장</td>
+              </tr>
+              <tr>
+                <td class="col-role">교감</td>
+                <td class="col-name">문효상</td>
+                <td>전 중학교 국어교사, 현 캐나다 서부지역한국학교협회 서기</td>
+              </tr>
+              <tr>
+                <td class="col-role">교사</td>
+                <td class="col-name">김효진</td>
+                <td>유아교육 전공</td>
+              </tr>
+              <tr>
+                <td class="col-role">교사</td>
+                <td class="col-name">장미라</td>
+                <td>유아교육 전공</td>
+              </tr>
+              <tr>
+                <td class="col-role">교사</td>
+                <td class="col-name">김정희(에밀리)</td>
+                <td>한국어교육 전공, 불어교육 전공</td>
+              </tr>
+              <tr>
+                <td class="col-role">교사</td>
+                <td class="col-name">김정희(비앙카)</td>
+                <td>한국어교육 과정 수료</td>
+              </tr>
+              <tr>
+                <td class="col-role">교사</td>
+                <td class="col-name">임은전</td>
+                <td>한국어교육 과정 수료</td>
+              </tr>
+              <tr>
+                <td class="col-role">교사</td>
+                <td class="col-name">위캘리</td>
+                <td>한국어 교육 전공</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div>
+        <strong>밴쿠버온누리한국어학교</strong>
+        <p>주소: 19711 86 Ave, Langley Twp, BC V2Y 1Z5</p>
+        <p>전화: +1-604-000-0000 | 이메일: vanonnuriks@gmail.com</p>
+      </div>
+      <p class="copy">© 2026 Vancouver Onnuri Korean School. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260320-2"></script>
+</body>
+</html>
