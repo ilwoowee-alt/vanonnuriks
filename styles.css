@@ -152,7 +152,7 @@ img {
   background: #fff;
 }
 
-.gnb ul {
+.gnb > .container > ul {
   list-style: none;
   display: flex;
   margin: 0;
@@ -580,7 +580,7 @@ img {
     display: block;
   }
 
-  .gnb ul {
+  .gnb > .container > ul {
     flex-direction: column;
   }
 
