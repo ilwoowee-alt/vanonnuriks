@@ -212,9 +212,13 @@ img {
 }
 
 @media (min-width: 761px) {
+  .has-submenu > .submenu {
+    display: none !important;
+  }
+
   .has-submenu:hover > .submenu,
   .has-submenu:focus-within > .submenu {
-    display: block;
+    display: block !important;
   }
 }
 
