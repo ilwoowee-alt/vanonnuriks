@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260320-2" />
+  <link rel="stylesheet" href="styles.css?v=20260320-3" />
 </head>
 <body>
   <a class="skip-link" href="#main">본문 바로가기</a>
@@ -116,6 +116,18 @@
               <button type="button" id="openNoticeForm" class="mini-btn" hidden>공지 등록 | Add Notice</button>
             </div>
           </header>
+          <form id="adminLoginForm" class="admin-login-form" hidden>
+            <label>관리자 아이디
+              <input type="text" id="adminIdInput" placeholder="아이디" required />
+            </label>
+            <label>비밀번호
+              <input type="password" id="adminPwInput" placeholder="비밀번호" required />
+            </label>
+            <div class="notice-form-actions">
+              <button type="submit" class="mini-btn primary">로그인</button>
+              <button type="button" id="cancelAdminLogin" class="mini-btn">취소</button>
+            </div>
+          </form>
           <form id="noticeForm" class="notice-form" hidden>
             <label>분류
               <input type="text" id="noticeCategory" placeholder="예: 학사, 모집, 안내" required />
@@ -254,7 +266,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260320-2"></script>
+  <script src="script.js?v=20260320-3"></script>
 </body>
 </html>
 

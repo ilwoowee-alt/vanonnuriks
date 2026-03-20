@@ -101,6 +101,10 @@ const cancelNoticeFormBtn = document.getElementById('cancelNoticeForm');
 const adminLoginBtn = document.getElementById('adminLoginBtn');
 const adminLogoutBtn = document.getElementById('adminLogoutBtn');
 const adminStatus = document.getElementById('adminStatus');
+const adminLoginForm = document.getElementById('adminLoginForm');
+const adminIdInput = document.getElementById('adminIdInput');
+const adminPwInput = document.getElementById('adminPwInput');
+const cancelAdminLoginBtn = document.getElementById('cancelAdminLogin');
 const noticeCategoryInput = document.getElementById('noticeCategory');
 const noticeTitleInput = document.getElementById('noticeTitle');
 const noticeDateInput = document.getElementById('noticeDate');
@@ -322,17 +326,29 @@ function renderAdminUi() {
   if (!loggedIn && noticeForm) {
     noticeForm.hidden = true;
   }
+  if (loggedIn && adminLoginForm) {
+    adminLoginForm.hidden = true;
+  }
 }
 
 adminLoginBtn?.addEventListener('click', () => {
-  const id = window.prompt('관리자 아이디를 입력하세요');
-  if (!id) return;
-  const password = window.prompt('관리자 비밀번호를 입력하세요');
-  if (!password) return;
+  if (!adminLoginForm) return;
+  adminLoginForm.hidden = !adminLoginForm.hidden;
+});
 
-  if (id.trim() === adminCredential.id && password === adminCredential.password) {
+cancelAdminLoginBtn?.addEventListener('click', () => {
+  if (!adminLoginForm) return;
+  adminLoginForm.hidden = true;
+});
+
+adminLoginForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const id = adminIdInput?.value.trim() ?? '';
+  const password = adminPwInput?.value ?? '';
+  if (id === adminCredential.id && password === adminCredential.password) {
     window.sessionStorage.setItem(adminSessionKey, '1');
     renderAdminUi();
+    adminLoginForm.reset();
     window.alert('관리자 로그인에 성공했습니다.');
   } else {
     window.alert('아이디 또는 비밀번호가 올바르지 않습니다.');

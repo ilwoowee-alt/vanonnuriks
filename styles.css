@@ -449,6 +449,32 @@ img {
   background: #f8fbff;
 }
 
+.admin-login-form {
+  margin-bottom: 0.9rem;
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  border: 1px solid #d9e7f7;
+  border-radius: 10px;
+  background: #f8fbff;
+}
+
+.admin-login-form label {
+  display: grid;
+  gap: 0.28rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #294565;
+}
+
+.admin-login-form input {
+  border: 1px solid #cbdced;
+  border-radius: 8px;
+  padding: 0.52rem 0.62rem;
+  font: inherit;
+  background: #fff;
+}
+
 .notice-form label {
   display: grid;
   gap: 0.28rem;
