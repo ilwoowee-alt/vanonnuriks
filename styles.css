@@ -161,6 +161,7 @@ img {
 
 .gnb li {
   flex: 1;
+  position: relative;
 }
 
 .gnb a {
@@ -173,6 +174,47 @@ img {
 .gnb a:hover {
   background: #f2f8ff;
   color: var(--primary);
+}
+
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 0;
+  box-shadow: 0 10px 24px rgba(22, 56, 95, 0.12);
+  display: none;
+  z-index: 30;
+}
+
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu,
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+.submenu li {
+  border-top: 1px solid #edf3fb;
+}
+
+.submenu li:first-child {
+  border-top: 0;
+}
+
+.submenu a {
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  font-weight: 600;
+  font-size: 0.93rem;
+}
+
+.submenu a:hover {
+  background: #f6faff;
 }
 
 .hero {
@@ -314,6 +356,7 @@ img {
 }
 
 .notice-section,
+.teachers,
 .programs,
 .gallery,
 .admission {
@@ -542,6 +585,21 @@ img {
 
   .gnb li {
     border-bottom: 1px solid var(--line);
+  }
+
+  .submenu {
+    position: static;
+    border: 0;
+    box-shadow: none;
+    border-top: 1px solid #e7eef8;
+    background: #f8fbff;
+  }
+
+  .submenu a {
+    text-align: left;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 
   .hero-content {

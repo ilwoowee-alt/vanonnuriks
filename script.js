@@ -9,6 +9,25 @@ if (menuToggle && gnb) {
   });
 }
 
+const submenuToggles = Array.from(document.querySelectorAll('.submenu-toggle'));
+
+submenuToggles.forEach((toggle) => {
+  toggle.addEventListener('click', (event) => {
+    if (!window.matchMedia('(max-width: 760px)').matches) {
+      return;
+    }
+
+    event.preventDefault();
+    const parent = toggle.closest('.has-submenu');
+    if (!parent) {
+      return;
+    }
+
+    const opened = parent.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(opened));
+  });
+});
+
 const slides = Array.from(document.querySelectorAll('.hero-slide'));
 const dotsWrap = document.getElementById('dots');
 const prevBtn = document.getElementById('prevSlide');
