@@ -110,7 +110,10 @@
           <header>
             <h3>공지사항</h3>
             <div class="notice-actions">
-              <button type="button" id="openNoticeForm" class="mini-btn">공지 등록 | Add Notice</button>
+              <span id="adminStatus" class="admin-status">관리자 로그아웃 상태</span>
+              <button type="button" id="adminLoginBtn" class="mini-btn">관리자 로그인</button>
+              <button type="button" id="adminLogoutBtn" class="mini-btn" hidden>로그아웃</button>
+              <button type="button" id="openNoticeForm" class="mini-btn" hidden>공지 등록 | Add Notice</button>
             </div>
           </header>
           <form id="noticeForm" class="notice-form" hidden>

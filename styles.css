@@ -409,6 +409,17 @@ img {
 .notice-actions {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.admin-status {
+  font-size: 0.8rem;
+  color: #4c637f;
+  background: #eef4fc;
+  border: 1px solid #d7e4f4;
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
 }
 
 .mini-btn {

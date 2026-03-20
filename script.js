@@ -98,6 +98,9 @@ const noticeList = document.getElementById('noticeList');
 const noticeForm = document.getElementById('noticeForm');
 const openNoticeFormBtn = document.getElementById('openNoticeForm');
 const cancelNoticeFormBtn = document.getElementById('cancelNoticeForm');
+const adminLoginBtn = document.getElementById('adminLoginBtn');
+const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+const adminStatus = document.getElementById('adminStatus');
 const noticeCategoryInput = document.getElementById('noticeCategory');
 const noticeTitleInput = document.getElementById('noticeTitle');
 const noticeDateInput = document.getElementById('noticeDate');
@@ -108,6 +111,11 @@ const noticeViewerTitle = document.getElementById('noticeViewerTitle');
 const noticeViewerMeta = document.getElementById('noticeViewerMeta');
 const noticeViewerContent = document.getElementById('noticeViewerContent');
 const noticeViewerImage = document.getElementById('noticeViewerImage');
+const adminSessionKey = 'vanonnuri_admin_auth_v1';
+const adminCredential = {
+  id: 'admin',
+  password: 'onnuri2026!',
+};
 
 const defaultNotices = [
   {
@@ -250,6 +258,10 @@ function readImageAsDataUrl(file) {
 
 if (openNoticeFormBtn && noticeForm) {
   openNoticeFormBtn.addEventListener('click', () => {
+    if (!isAdminLoggedIn()) {
+      window.alert('관리자 로그인 후 공지를 등록할 수 있습니다.');
+      return;
+    }
     noticeForm.hidden = !noticeForm.hidden;
   });
 }
@@ -261,6 +273,10 @@ cancelNoticeFormBtn?.addEventListener('click', () => {
 
 noticeForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
+  if (!isAdminLoggedIn()) {
+    window.alert('관리자만 공지를 등록할 수 있습니다.');
+    return;
+  }
   if (!noticeCategoryInput || !noticeTitleInput || !noticeDateInput || !noticeContentInput) return;
 
   const imageFile = noticeImageInput?.files?.[0];
@@ -290,3 +306,42 @@ noticeForm?.addEventListener('submit', async (event) => {
 if (noticeList) {
   renderNoticeList();
 }
+
+function isAdminLoggedIn() {
+  return window.sessionStorage.getItem(adminSessionKey) === '1';
+}
+
+function renderAdminUi() {
+  const loggedIn = isAdminLoggedIn();
+  if (openNoticeFormBtn) openNoticeFormBtn.hidden = !loggedIn;
+  if (adminLoginBtn) adminLoginBtn.hidden = loggedIn;
+  if (adminLogoutBtn) adminLogoutBtn.hidden = !loggedIn;
+  if (adminStatus) {
+    adminStatus.textContent = loggedIn ? '관리자 로그인됨' : '관리자 로그아웃 상태';
+  }
+  if (!loggedIn && noticeForm) {
+    noticeForm.hidden = true;
+  }
+}
+
+adminLoginBtn?.addEventListener('click', () => {
+  const id = window.prompt('관리자 아이디를 입력하세요');
+  if (!id) return;
+  const password = window.prompt('관리자 비밀번호를 입력하세요');
+  if (!password) return;
+
+  if (id.trim() === adminCredential.id && password === adminCredential.password) {
+    window.sessionStorage.setItem(adminSessionKey, '1');
+    renderAdminUi();
+    window.alert('관리자 로그인에 성공했습니다.');
+  } else {
+    window.alert('아이디 또는 비밀번호가 올바르지 않습니다.');
+  }
+});
+
+adminLogoutBtn?.addEventListener('click', () => {
+  window.sessionStorage.removeItem(adminSessionKey);
+  renderAdminUi();
+});
+
+renderAdminUi();
