@@ -68,6 +68,14 @@ img {
   border-bottom: 1px solid #d7e7fa;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(18, 55, 96, 0.06);
+}
+
 .topbar-inner {
   display: flex;
   justify-content: space-between;
