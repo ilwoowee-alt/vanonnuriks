@@ -176,6 +176,11 @@ img {
   color: var(--primary);
 }
 
+.gnb a.current {
+  background: #eef6ff;
+  color: #0f4f8d;
+}
+
 .submenu {
   list-style: none;
   margin: 0;
@@ -209,6 +214,11 @@ img {
 
 .submenu a:hover {
   background: #f6faff;
+}
+
+.submenu a.current {
+  background: #ecf5ff;
+  color: #0f4f8d;
 }
 
 @media (min-width: 761px) {
