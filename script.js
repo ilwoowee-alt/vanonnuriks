@@ -121,3 +121,28 @@ noticeItems.forEach((item) => {
     }
   });
 });
+
+const copyEmailBtn = document.getElementById('copyEmailBtn');
+const contactEmailText = document.getElementById('contactEmailText');
+
+copyEmailBtn?.addEventListener('click', async () => {
+  const text = contactEmailText?.textContent?.trim();
+  if (!text) return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    copyEmailBtn.textContent = '복사됨';
+  } catch {
+    const temp = document.createElement('input');
+    temp.value = text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    temp.remove();
+    copyEmailBtn.textContent = '복사됨';
+  }
+
+  window.setTimeout(() => {
+    copyEmailBtn.textContent = '복사';
+  }, 1500);
+});
