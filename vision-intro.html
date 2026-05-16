@@ -113,8 +113,39 @@
       font-weight: 700;
     }
 
+    .vision-extra {
+      margin-top: 1rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vision-extra-card {
+      background: #ffffff;
+      border: 1px solid #dbe6f3;
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 8px 18px rgba(25, 77, 130, 0.06);
+    }
+
+    .vision-extra-card h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.07rem;
+      color: #0e2c4f;
+    }
+
+    .vision-extra-card p {
+      margin: 0.4rem 0 0;
+      color: #30455f;
+      line-height: 1.75;
+    }
+
     @media (max-width: 900px) {
       .vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vision-extra {
         grid-template-columns: 1fr;
       }
 
@@ -165,9 +196,9 @@
           </li>
           <li><a href="curriculum.html?v=20260320-4">교육과정 | Programs</a></li>
           <li><a href="index.html#notice">공지사항 | Notice</a></li>
-          <li><a href="index.html#gallery">학교소식 | News</a></li>
+          <li><a href="news.html?v=20260515-1">학교소식 | News</a></li>
           <li><a href="index.html#admission">입학안내 | Admission</a></li>
-          <li><a href="index.html#contact">오시는길 | Contact</a></li>
+          <li><a href="contact.html?v=20260515-1">오시는길 | Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -221,6 +252,19 @@
           </article>
         </section>
 
+        <section class="vision-extra" aria-label="특별 프로그램">
+          <article class="vision-extra-card">
+            <h3>1:1 동화 읽기 프로그램</h3>
+            <p>“한글을 읽는다”와 “책을 이해하며 읽는다”는 다릅니다.</p>
+            <p>우리 학교는 학생과 보조교사(학생 봉사자)를 1:1로 매칭하여 동화를 함께 읽으며, 단순 글자 읽기를 넘어 내용을 이해하고 생각하는 힘까지 키웁니다.</p>
+          </article>
+          <article class="vision-extra-card">
+            <h3>챌린지100 프로그램</h3>
+            <p>매일 스스로 학습 목표를 정하고 실천하는 자기주도 학습 훈련 프로그램입니다.</p>
+            <p>아이들이 “시키는 공부”가 아닌 “스스로 하는 공부”를 배우도록 돕습니다.</p>
+          </article>
+        </section>
+
         <p class="vision-back"><a href="index.html">메인으로 돌아가기 | Back to Home</a></p>
       </div>
     </section>
@@ -240,6 +284,8 @@
   <script src="script.js?v=20260320-2"></script>
 </body>
 </html>
+
+
 
 
 

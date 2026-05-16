@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260320-4" />
+  <link rel="stylesheet" href="styles.css?v=20260516-1" />
 </head>
 <body>
   <a class="skip-link" href="#main">본문 바로가기</a>
@@ -18,14 +18,11 @@
     <div class="topbar">
       <div class="container topbar-inner">
         <p>Welcome to Vancouver Onnuri Korean School</p>
-        <ul class="top-links">
-          <li><a href="#">사이트맵 | Sitemap</a></li>
-        </ul>
       </div>
     </div>
 
     <div class="container brand-row">
-      <a class="brand" href="#" aria-label="메인으로 이동">
+      <a class="brand" href="index.html" aria-label="메인으로 이동">
         <span class="brand-mark">
           <img src="assets/images/onnuri-korean-school-logo.png" alt="밴쿠버온누리한국어학교 로고" />
         </span>
@@ -54,10 +51,10 @@
             </ul>
           </li>
           <li><a href="curriculum.html?v=20260320-4">교육과정 | Programs</a></li>
-          <li><a href="#notice">공지사항 | Notice</a></li>
-          <li><a href="#gallery">학교소식 | News</a></li>
+          <li><a href="notice.html?v=20260515-1">공지사항 | Notice</a></li>
+          <li><a href="news.html?v=20260515-1">학교소식 | News</a></li>
           <li><a href="#admission">입학안내 | Admission</a></li>
-          <li><a href="#contact">오시는길 | Contact</a></li>
+          <li><a href="contact.html?v=20260515-1">오시는길 | Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -68,7 +65,7 @@
       <div class="hero-slides" id="heroSlides">
         <article class="hero-slide is-active" style="--bg-img:url('https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?auto=format&fit=crop&w=1500&q=80');">
           <div class="container hero-content">
-            <p class="eyebrow">2026 온라인 봄학기 모집</p>
+            <p class="eyebrow">2026-2027 새학기 모집</p>
             <h1>온라인으로 만나는 한국어, 어디서나 이어지는 배움</h1>
             <p>캐나다 전역은 물론 전세계 어디에서든지 실시간 온라인 수업으로 한국어를 배울 수 있습니다.</p>
             <a href="#admission" class="hero-cta">온라인 등록 일정 | Registration</a>
@@ -98,12 +95,29 @@
       </div>
     </section>
 
-    <section class="quick-links">
-      <div class="container quick-grid">
-        <a href="#admission"><strong>입학안내 | Admission</strong><span>원서 및 등록일정 | Forms & Dates</span></a>
-        <a href="#notice"><strong>공지사항 | Notice</strong><span>학사일정 및 안내 | School Calendar</span></a>
-        <a href="curriculum.html?v=20260320-4"><strong>교육과정 | Programs</strong><span>반별 학습목표 | Class Goals</span></a>
-        <a href="#gallery"><strong>학교소식 | News</strong><span>행사 사진과 이야기 | Gallery Stories</span></a>
+    <section class="teachers" id="special-programs">
+      <div class="container">
+        <div class="section-head">
+          <h3>우리 한국어학교만의 특별한 교육 프로그램</h3>
+        </div>
+        <div class="special-grid">
+          <article class="special-card">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80" alt="학생과 보조교사가 함께 동화를 읽는 모습" />
+            <div class="special-body">
+              <h4>1:1 동화 읽기 프로그램</h4>
+              <p>“한글을 읽는다”와 “책을 이해하며 읽는다”는 다릅니다.</p>
+              <p>우리 학교는 학생과 보조교사(학생 봉사자)를 1:1로 매칭하여 동화를 함께 읽으며, 단순 글자 읽기를 넘어 내용을 이해하고 생각하는 힘까지 키웁니다.</p>
+            </div>
+          </article>
+          <article class="special-card">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="학생이 학습 목표를 세우고 스스로 공부하는 모습" />
+            <div class="special-body">
+              <h4>챌린지100 프로그램</h4>
+              <p>매일 스스로 학습 목표를 정하고 실천하는 자기주도 학습 훈련 프로그램입니다.</p>
+              <p>아이들이 “시키는 공부”가 아닌 “스스로 하는 공부”를 배우도록 돕습니다.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -112,35 +126,9 @@
         <article class="panel">
           <header>
             <h3>공지사항</h3>
-            <a href="#">더보기 | More +</a>
+            <a href="notice.html?v=20260515-1">더보기 | More +</a>
           </header>
-          <ul class="list notice-accordion" id="noticeAccordion">
-            <li>
-              <button type="button" class="notice-title"><span>[학사]</span> 봄방학 휴강 안내(3월21일,28일)</button>
-              <time datetime="2026-03-20">2026.03.20</time>
-              <p class="notice-detail" hidden>3월21일,28일은 휴강으로 수업이 없습니다.</p>
-            </li>
-            <li>
-              <button type="button" class="notice-title"><span>[학사]</span> 2026 봄학기 개강 안내</button>
-              <time datetime="2026-03-10">2026.03.10</time>
-              <p class="notice-detail" hidden>2026 봄학기 수업이 시작됩니다. 반별 시간표와 준비물을 확인해 주세요.</p>
-            </li>
-            <li>
-              <button type="button" class="notice-title"><span>[모집]</span> 신입생 레벨테스트 신청</button>
-              <time datetime="2026-03-05">2026.03.05</time>
-              <p class="notice-detail" hidden>신입생 반 편성을 위한 레벨테스트 신청을 받고 있습니다.</p>
-            </li>
-            <li>
-              <button type="button" class="notice-title"><span>[행사]</span> 한글날 글쓰기 대회 참가 접수</button>
-              <time datetime="2026-02-25">2026.02.25</time>
-              <p class="notice-detail" hidden>한글날 행사로 진행되는 글쓰기 대회 참가 신청을 받습니다.</p>
-            </li>
-            <li>
-              <button type="button" class="notice-title"><span>[안내]</span> 학부모 오리엔테이션 일정 공지</button>
-              <time datetime="2026-02-20">2026.02.20</time>
-              <p class="notice-detail" hidden>학부모 오리엔테이션 일정과 참여 방법을 안내드립니다.</p>
-            </li>
-          </ul>
+          <ul class="list notice-accordion" id="noticeAccordion"></ul>
         </article>
 
         <article class="panel" id="about">
@@ -148,56 +136,16 @@
             <h3>학교 소개</h3>
           </header>
           <p>
-            밴쿠버온누리한국어학교는 캐나다 밴쿠버 지역의 차세대가 한국어와 한국문화를
+            밴쿠버온누리한국어학교는 캐나다 전 지역의 차세대가 한국어와 한국문화를
             즐겁게 배우며 정체성과 자신감을 키우도록 돕는 주말학교입니다.
+            연 26회의 온라인 수업과 4회 이상의 대면수업으로 진행됩니다.
           </p>
           <div class="facts">
             <dl><dt>수업 대상</dt><dd>유아 ~ 청소년</dd></dl>
-            <dl><dt>수업 시간</dt><dd>매주 토요일 오전</dd></dl>
+            <dl><dt>수업 시간</dt><dd>매주 토요일 오전 10시30분</dd></dl>
             <dl><dt>운영 과정</dt><dd>기초/초급/중급/고급</dd></dl>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section class="teachers" id="teachers">
-      <div class="container">
-        <article class="panel">
-          <header>
-            <h3><a href="teachers.html?v=20260320-1">교사 소개</a></h3>
-          </header>
-          <p>
-            밴쿠버온누리한국어학교 교사진은 한국어 교육 경험과 온라인 수업 전문성을 갖춘 선생님들로
-            구성되어 있습니다. 학생 연령과 수준에 맞춘 맞춤형 지도와 따뜻한 피드백으로 학습 성장을 돕습니다.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="programs" id="programs">
-      <div class="container">
-        <div class="section-head">
-          <h3>교육과정</h3>
-          <p>수준별 한국어 교육과 체험형 문화활동으로 균형 있게 성장합니다.</p>
-        </div>
-        <div class="program-grid">
-          <article>
-            <h4>한글 첫걸음</h4>
-            <p>자음·모음 학습과 놀이 활동 중심의 유아/초등 저학년 과정</p>
-          </article>
-          <article>
-            <h4>읽기와 말하기</h4>
-            <p>생활 한국어를 중심으로 듣기·말하기·읽기·쓰기 통합 학습</p>
-          </article>
-          <article>
-            <h4>심화 한국어</h4>
-            <p>토론, 발표, 글쓰기 중심으로 사고력과 표현력을 확장하는 과정</p>
-          </article>
-          <article>
-            <h4>한국문화 프로젝트</h4>
-            <p>명절, 전통예절, 역사, K-문화 콘텐츠를 통한 체험형 수업</p>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -205,7 +153,6 @@
       <div class="container">
         <div class="section-head">
           <h3>학교소식</h3>
-          <a href="#">전체보기 | View All +</a>
         </div>
         <div class="gallery-grid">
           <article>
@@ -230,9 +177,8 @@
     <section class="admission" id="admission">
       <div class="container admission-box">
         <h3>입학 안내</h3>
-        <p>신입생 등록은 학기 시작 4주 전부터 진행됩니다. 반 배정 전 간단한 레벨 확인이 있습니다.</p>
+        <p>신입생 등록은 6월부터 진행됩니다. 반 배정 전 간단한 레벨 확인이 있습니다.</p>
         <div class="admission-actions">
-          <a href="#">입학 원서 다운로드 | Download Form</a>
           <a href="https://open.kakao.com/o/gTjWNsmi" target="_blank" rel="noopener noreferrer">카카오톡 문의 | KakaoTalk</a>
           <a href="mailto:vanonnuriks@gmail.com">이메일 문의 | Email</a>
         </div>
@@ -255,9 +201,32 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260320-6"></script>
+  <div id="homeNewsModal" class="home-news-modal" role="dialog" aria-modal="true" aria-label="학교소식 상세">
+    <div class="home-news-modal-card">
+      <div class="home-news-modal-head">
+        <h3 id="homeNewsModalTitle"></h3>
+        <button type="button" id="homeNewsModalClose">닫기</button>
+      </div>
+      <img id="homeNewsModalImage" src="" alt="학교소식 상세 이미지" />
+      <div class="home-news-modal-nav">
+        <button type="button" id="homeNewsPrev">이전</button>
+        <span id="homeNewsModalCount">1 / 1</span>
+        <button type="button" id="homeNewsNext">다음</button>
+      </div>
+      <p id="homeNewsModalDesc"></p>
+    </div>
+  </div>
+
+  <script src="script.js?v=20260516-1"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 

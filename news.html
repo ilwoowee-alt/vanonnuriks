@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학교소식 | 밴쿠버온누리한국어학교</title>
+  <meta name="description" content="밴쿠버온누리한국어학교 학교소식 게시판" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260516-1" />
+  <style>
+    .sub-hero { background: linear-gradient(115deg, #deefff, #edf6ff 55%, #f9fcff); border-top: 1px solid #d8e6f7; border-bottom: 1px solid #d8e6f7; padding: 30px 0; }
+    .sub-hero h1 { margin: 0; color: #0e2c4f; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+    .crumb { margin: 0.35rem 0 0; color: #4b617d; font-size: 0.92rem; }
+    .news-page { background: linear-gradient(180deg, #f5faff 0%, #ffffff 100%); min-height: 100vh; padding: 34px 0 70px; }
+    .news-wrap { width: min(1160px, 92vw); margin: 0 auto; }
+    .board-top { display: flex; justify-content: space-between; align-items: center; gap: .8rem; margin-bottom: .8rem; }
+    .admin-btn { border: 1px solid #c5d9ef; background: #fff; color: #164776; border-radius: 999px; padding: .45rem .9rem; font-weight: 700; cursor: pointer; }
+    .write-box { display: none; background: #fff; border: 1px solid #dbe6f3; border-radius: 12px; padding: 1rem; margin-bottom: .9rem; }
+    .write-box.show { display: block; }
+    .write-grid { display: grid; gap: .55rem; }
+    .write-grid input, .write-grid textarea { width: 100%; border: 1px solid #cadcef; border-radius: 8px; padding: .62rem .7rem; font: inherit; }
+    .write-grid textarea { min-height: 110px; resize: vertical; }
+    .write-actions { display: flex; gap: .5rem; margin-top: .7rem; }
+    .write-actions button { border: 1px solid #bcd5ed; background: #f8fbff; color: #184a7a; border-radius: 8px; padding: .5rem .75rem; font-weight: 700; cursor: pointer; }
+    .write-actions .primary { background: #1e6bb8; color: #fff; border-color: #1e6bb8; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .news-card { background: #fff; border: 1px solid #dbe6f3; border-radius: 12px; overflow: hidden; }
+    .news-card img { aspect-ratio: 16/10; object-fit: cover; width: 100%; display: block; }
+    .news-body { padding: .75rem .85rem 1rem; }
+    .news-body h3 { margin: 0 0 .4rem; color: #173f67; font-size: 1.02rem; }
+    .news-body p { margin: 0; color: #5f738c; }
+    .news-body .desc { margin-top: .45rem; color: #344a63; line-height: 1.7; }
+    .news-gallery { margin-top: .65rem; border: 1px solid #d8e6f5; border-radius: 10px; overflow: hidden; background: #f7fbff; }
+    .news-gallery[hidden] { display: none; }
+    .gallery-view img { aspect-ratio: 16/10; object-fit: cover; width: 100%; display: block; }
+    .gallery-controls { display: flex; align-items: center; justify-content: space-between; padding: .45rem .55rem; border-top: 1px solid #dbe9f7; background: #fff; }
+    .gallery-controls button { border: 1px solid #c5d9ef; background: #fff; color: #164776; border-radius: 999px; padding: .22rem .62rem; font-weight: 700; cursor: pointer; }
+    .gallery-count { color: #4d6480; font-size: .9rem; }
+    .photo-modal { position: fixed; inset: 0; background: rgba(14, 33, 54, 0.78); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 200; }
+    .photo-modal.show { display: flex; }
+    .photo-modal-card { width: min(920px, 96vw); max-height: 92vh; overflow: auto; background: #fff; border-radius: 14px; border: 1px solid #d7e6f7; }
+    .photo-modal-card img { width: 100%; max-height: 62vh; object-fit: contain; background: #f4f8fc; }
+    .photo-modal-body { padding: .9rem 1rem 1rem; }
+    .photo-modal-body h3 { margin: 0 0 .35rem; color: #173f67; }
+    .photo-modal-body p { margin: 0; color: #324a63; line-height: 1.7; }
+    .photo-modal-nav { display: flex; align-items: center; justify-content: center; gap: .7rem; padding: .55rem .7rem; border-top: 1px solid #dbe9f7; border-bottom: 1px solid #dbe9f7; background: #fff; }
+    .photo-modal-nav button { border: 1px solid #c5d9ef; background: #fff; color: #164776; border-radius: 999px; padding: .2rem .62rem; font-weight: 700; cursor: pointer; }
+    #photoModalCount { color: #4d6480; font-size: .92rem; }
+    .photo-modal-close { float: right; border: 1px solid #c5d9ef; background: #fff; color: #164776; border-radius: 999px; padding: .2rem .62rem; font-weight: 700; cursor: pointer; }
+    .item-actions { margin-top: .6rem; display: none; gap: .4rem; }
+    .news-admin .item-actions { display: flex; }
+    .item-actions button { border: 1px solid #c5d9ef; background: #fff; color: #164776; border-radius: 8px; padding: .28rem .55rem; font-weight: 700; cursor: pointer; }
+    .empty { background: #fff; border: 1px dashed #c7d9ee; border-radius: 12px; padding: 1rem; color: #607791; }
+    @media (max-width: 980px){ .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 760px){ .news-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header">
+    <div class="topbar"><div class="container topbar-inner"><p>Welcome to Vancouver Onnuri Korean School</p></div></div>
+    <div class="container brand-row">
+      <a class="brand" href="index.html" aria-label="메인으로 이동"><span class="brand-mark"><img src="assets/images/onnuri-korean-school-logo.png" alt="밴쿠버온누리한국어학교 로고" /></span><span class="brand-text"><strong>밴쿠버온누리한국어학교</strong><small>Vancouver Onnuri Korean School</small></span></a>
+      <a class="apply-btn" href="index.html#admission">입학 문의 | Inquiry</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="gnb" aria-label="모바일 메뉴 열기"><span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="menu-text">메뉴</span></button>
+    </div>
+    <nav class="gnb" id="gnb" aria-label="주요 메뉴"><div class="container"><ul>
+      <li class="has-submenu"><a href="index.html#about" class="submenu-toggle" aria-expanded="false">학교소개 | About</a><ul class="submenu"><li><a href="vision-intro.html?v=20260320-1">학교 비전 &amp; 소개 | Vision &amp; Intro</a></li><li><a href="teachers.html?v=20260320-1">교사 소개 | Teachers</a></li></ul></li>
+      <li><a href="curriculum.html?v=20260320-4">교육과정 | Programs</a></li>
+      <li><a href="notice.html?v=20260515-1">공지사항 | Notice</a></li>
+      <li><a href="news.html?v=20260515-1" class="current">학교소식 | News</a></li>
+      <li><a href="index.html#admission">입학안내 | Admission</a></li>
+      <li><a href="contact.html?v=20260515-1">오시는길 | Contact</a></li>
+    </ul></div></nav>
+  </header>
+
+  <main id="main">
+    <section class="sub-hero"><div class="container"><h1>학교소식</h1><p class="crumb">홈 | 학교소식</p></div></section>
+    <section class="news-page"><div class="news-wrap">
+      <div class="board-top">
+        <p>학교 행사와 활동 사진을 확인하세요.</p>
+        <button type="button" class="admin-btn" id="newsAdminToggleBtn">관리자 모드</button>
+      </div>
+
+      <section class="write-box" id="newsWriteBox" aria-label="학교소식 작성 폼">
+        <div class="write-grid">
+          <input id="newsTitle" type="text" placeholder="제목" maxlength="120" />
+          <textarea id="newsBody" placeholder="설명"></textarea>
+          <input id="newsImage" type="file" accept="image/*" multiple />
+          <p style="margin:0;color:#5f738c;font-size:.92rem;">이미지는 게시글당 최대 5장까지 업로드할 수 있으며, 첫 번째 사진이 대표로 노출됩니다.</p>
+        </div>
+        <div class="write-actions">
+          <button type="button" class="primary" id="saveNewsBtn">저장</button>
+          <button type="button" id="cancelNewsEditBtn">취소</button>
+        </div>
+      </section>
+
+      <div id="newsGrid" class="news-grid" aria-live="polite"></div>
+    </div></section>
+  </main>
+
+  <div id="photoModal" class="photo-modal" role="dialog" aria-modal="true" aria-label="학교소식 사진 상세">
+    <div class="photo-modal-card">
+      <div class="photo-modal-body">
+        <button type="button" id="photoModalClose" class="photo-modal-close">닫기</button>
+        <h3 id="photoModalTitle"></h3>
+      </div>
+      <img id="photoModalImage" src="" alt="학교소식 상세 이미지" />
+      <div class="photo-modal-nav">
+        <button type="button" id="photoModalPrev">이전</button>
+        <span id="photoModalCount">1 / 1</span>
+        <button type="button" id="photoModalNext">다음</button>
+      </div>
+      <div class="photo-modal-body">
+        <p id="photoModalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="contact"><div class="container footer-inner"><div><strong>밴쿠버온누리한국어학교</strong><p>주소: 19711 86 Ave, Langley Twp, BC V2Y 1Z5</p><p>전화: +1-604-000-0000 | 이메일: vanonnuriks@gmail.com</p></div><p class="copy">© 2026 Vancouver Onnuri Korean School. All Rights Reserved.</p></div></footer>
+  <script src="script.js?v=20260516-1"></script>
+  <script src="news-board.js?v=20260516-1"></script>
+</body>
+</html>
+
+
+
