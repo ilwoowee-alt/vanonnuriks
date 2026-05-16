@@ -37,7 +37,7 @@ function defaults() {
       id: crypto.randomUUID(),
       title: '전통문화 체험의 날',
       body: '다양한 전통문화 체험 활동을 진행했습니다.',
-      images: ['https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80'],
+      images: ['https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?auto=format&fit=crop&w=900&q=80'],
       date: '2026-02-22'
     }
   ];
@@ -45,9 +45,23 @@ function defaults() {
 
 function normalizePost(post) {
   const images = Array.isArray(post.images) ? post.images.filter(Boolean) : [];
-  if (images.length) return { ...post, images };
-  if (post.image) return { ...post, images: [post.image] };
-  return { ...post, images: [] };
+  const normalized = images.length
+    ? { ...post, images }
+    : post.image
+      ? { ...post, images: [post.image] }
+      : { ...post, images: [] };
+
+  const oldCultureImage = 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80';
+  const newInstrumentImage = 'https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?auto=format&fit=crop&w=900&q=80';
+  if (
+    normalized.title === '전통문화 체험의 날' &&
+    Array.isArray(normalized.images) &&
+    normalized.images[0] === oldCultureImage
+  ) {
+    normalized.images[0] = newInstrumentImage;
+  }
+
+  return normalized;
 }
 
 function loadPosts() {
@@ -59,7 +73,10 @@ function loadPosts() {
   }
   try {
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.map(normalizePost) : [];
+    if (!Array.isArray(parsed)) return [];
+    const normalized = parsed.map(normalizePost);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    return normalized;
   } catch {
     return [];
   }
@@ -319,3 +336,4 @@ window.addEventListener('keydown', (event) => {
 });
 
 render();
+
