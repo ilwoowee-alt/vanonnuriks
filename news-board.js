@@ -51,14 +51,15 @@ function normalizePost(post) {
       ? { ...post, images: [post.image] }
       : { ...post, images: [] };
 
-  const oldCultureImage = 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80';
   const newInstrumentImage = 'https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?auto=format&fit=crop&w=900&q=80';
-  if (
-    normalized.title === '전통문화 체험의 날' &&
-    Array.isArray(normalized.images) &&
-    normalized.images[0] === oldCultureImage
-  ) {
-    normalized.images[0] = newInstrumentImage;
+  const title = String(normalized.title || '').trim();
+  if (title.includes('전통문화 체험의 날')) {
+    if (!Array.isArray(normalized.images)) normalized.images = [];
+    if (!normalized.images.length) {
+      normalized.images = [newInstrumentImage];
+    } else {
+      normalized.images[0] = newInstrumentImage;
+    }
   }
 
   return normalized;
